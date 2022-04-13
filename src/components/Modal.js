@@ -11,7 +11,7 @@ const Modal = ({ open, onClose , children, message }) => {
       <div className={ styles.overlaystyle }>
         <div className={styles.modalstyle}>
           <div className={styles.header}>{message ? <FaUserCheck className={styles.green} /> : <FaUserAltSlash className={styles.red}/>}</div>
-          <div className={styles.body}>{message?'اطلاعات معتبر است':'اطلاعات معتبر نیست'}</div>
+          <div className={styles.body}>{message?'اطلاعات با موفقیت ثبت شده است':' اطلاعات معتبر نیست لطفا فیلدهای مورد نظر را پر کنید'}</div>
           <div className={styles.footer}>
             <button onClick={onClose}>بستن</button>
           </div>

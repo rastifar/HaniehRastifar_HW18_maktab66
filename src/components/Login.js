@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Formik } from "formik";
 import styles from "./Signup.module.css";
 import Modal from "./Modal";
-import WithFetching from "./withFetching";
+
 
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import axios from "axios";
@@ -25,10 +25,10 @@ const Login = () => {
     data.map(item => {
       if (item.email === values.email && item.password === values.password) {       
         addToUser(`${item.firstName} ${item.lastName}`);
-        return;       
+        return;
       }
+      
     })
-    alert("لطفا جهت ورود به سایت ابتدا ثبت نام کنید")
    
   };
   return (
@@ -85,6 +85,7 @@ const Login = () => {
               <div className={styles.formField}>
                 <input
                   className={styles.inputField}
+                  placeholder="پست الکترونیکی"
                   type="email"
                   name="email"
                   onChange={handleChange}
@@ -98,6 +99,7 @@ const Login = () => {
                   <input
                     type={passwordShown ? "text" : "password"}
                     className={styles.inputField}
+                    placeholder="کلمه عبور"
                     name="password"
                     onChange={handleChange}
                     onBlur={handleBlur}

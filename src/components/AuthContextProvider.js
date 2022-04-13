@@ -4,7 +4,7 @@ export const isAuthenticatedContext = createContext();
 
 const AuthContextProvider = ({children}) => {
 
-    const [user, setUser] = useState("")
+    const [user, setUser] = useState(null)
     const value = {
         user,
         addToUser: (item) => {

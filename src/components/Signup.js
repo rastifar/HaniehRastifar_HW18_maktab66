@@ -5,7 +5,6 @@ import Modal from "./Modal";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
-import WithFetching from "./withFetching";
 import axios from "axios";
 
 const validationSchema = yup.object().shape({
@@ -35,15 +34,14 @@ const Signup = () => {
       city: "",
     },
     onSubmit: (values) => {
-        alert(JSON.stringify(values, null, 2));
+      setTimeout(() => {
+        // alert(JSON.stringify(values, null, 2));
         axios.post(' http://localhost:3001/users',values)
-      // setTimeout(() => {
-      //   console.log(JSON.stringify(values, null, 2));
-      //   alert(JSON.stringify(values, null, 2));
-      //   setMessage(true);
-      //   setIsOpen(true)
+       
+        setMessage(true);
+        setIsOpen(true)
 
-      // }, 1000);
+      }, 1000);
     },
     validationSchema,
   });
@@ -120,9 +118,10 @@ const Signup = () => {
         </div>
         {/* password */}
         <div className={styles.formField}>
-          <div>
+          <div className={styles.dflex}>
             <input
               className={styles.inputField}
+              
               placeholder="کلمه عبور"
               id="password"
               name="password"
@@ -130,7 +129,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               value={formik.values.password}
             />
-            <div onClick={togglePassword} style={{ background: "red" }}>
+            <div onClick={togglePassword} className={styles.icon} >
               {passwordShown ? (
                 <FaRegEye className={styles.icon} />
               ) : (

@@ -31,7 +31,7 @@
 }
 .dflex {
     display: flex;
-    justify-content: space-between;
+   
   
 }
 .dflex div{
@@ -104,8 +104,10 @@
   display: flex;
 }
 .icon{
-  background-color:transparent;
-  color:  #25333c;
+  background-color:red;
+  color:  #ffffff;
   padding: 3px 2px;
+  width: 15px;
+  height: 35px;
  
 }
