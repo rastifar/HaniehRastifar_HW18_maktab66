@@ -9,7 +9,7 @@ const WithRendering = (Component) => {
     return (
       <>
         
-        {user ?  <Home name={user} logout={removeFromUser}{ ...props }/>:  <RegLog {...props} />}
+        {user ?  <Component name={user} logout={removeFromUser}{ ...props }/>:  <RegLog {...props} />}
       
       </>
     );

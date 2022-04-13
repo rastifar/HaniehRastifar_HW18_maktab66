@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 //Hoc
 import WithRendering from "./components/withRendering";
-//context
-import AuthContextProvider from "./components/AuthContextProvider";
+//styles
+import styles from './App.module.css'
 
-const App = () => {
+const App = ({ name, logout }) => {
   return (
     <>
-      <AuthContextProvider>
-     
-      </AuthContextProvider>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <h5 className={styles.title}> سلام {name} عزیز</h5>
+          <button onClick={logout}>خروج</button>
+        </div>
+      </div>
     </>
   );
 };
