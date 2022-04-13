@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { isAuthenticatedContext } from "./AuthContextProvider";
-import Home from "./Home";
+
 import RegLog from "./RegLog";
 
 const WithRendering = (Component) => {
