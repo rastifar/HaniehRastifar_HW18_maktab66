@@ -3,16 +3,26 @@ import React, { useState } from "react";
 import WithRendering from "./components/withRendering";
 //styles
 import styles from './App.module.css'
+import { AppBar, Button, IconButton, Toolbar, Typography } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
 
 const App = ({ name, logout }) => {
+ 
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h5 className={styles.title}> سلام {name} عزیز</h5>
-          <button onClick={logout}>خروج</button>
-        </div>
-      </div>
+      <AppBar>
+        <Toolbar>
+          
+          <Typography variant="subtitle1" component="div" sx={{ flexGrow: 1 }}>
+          سلام {name} عزیز
+          </Typography>
+          <Button onClick={logout} color="inherit" variant="outlined">خروج</Button>
+          <IconButton  sx={{ mr: 2 }} color="inherit" >
+            <MenuIcon/>
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      
     </>
   );
 };

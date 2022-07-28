@@ -9,6 +9,7 @@ import * as yup from "yup";
 
 import {
   FormControl,
+ 
   IconButton,
   InputAdornment,
   InputLabel,
@@ -43,6 +44,7 @@ const validationSchema = yup.object().shape({
 //   }
 // }))
 
+
 const Signup = () => {
   // const classes = useStyles()
   const formik = useFormik({
@@ -53,12 +55,12 @@ const Signup = () => {
       password: "",
       education: "",
       institute: "",
-      province:"",
+      province: "",
       city: "",
     },
     onSubmit: (values) => {
       setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
+        // alert(JSON.stringify(values, null, 2));
         axios.post(" http://localhost:3001/users", values);
 
         setMessage(true);
@@ -82,11 +84,6 @@ const Signup = () => {
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
-  const whandle = () => {
-    console.log(provinces[formik.values.province]);
-    console.log(formik.values.province);
-    console.log(formik.values.city);
-  };
   // Object.keys(provinces).map((item, index) => (console.log(item,index)))
   return (
     <div className={styles.container}>
@@ -102,6 +99,7 @@ const Signup = () => {
               color: "#fff",
             },
           }}
+         
           sx={{ mt: ".7rem", color: "warning.main" }}
           variant="outlined"
           id="firstName"
@@ -247,53 +245,66 @@ const Signup = () => {
         />
 
         {/* province */}
-        <Select
+<NativeSelect
+        
+          select
           sx={{ mt: ".7rem" }}
-          size="small"
-          fullWidth
-          id="province"
-          value={formik.values.province}
-          label="استان"
+          type="text"
           name="province"
           onChange={formik.handleChange}
-        >
-          {Object.keys(provinces).map((item, index) => (
-            <MenuItem value={item} key={index}>
-              {item}
-            </MenuItem>
-          ))}
-          {/* <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
-        </Select>
-        {/* city */}
-        <Select
-          sx={{ my: ".7rem" }}
           size="small"
           fullWidth
-          id="city"
-          name="city"
-          value={formik.values.city}
-          label="شهر"
-          onChange={formik.handleChange}
-          onClick={whandle}
+          label="استان"
+          value={formik.values.province}
+         
         >
-          {formik.values.province && (
-            <>
-            <MenuItem defaultValue="DEFAULT">شهر</MenuItem>
-            {
-              provinces[formik.values.province].map((item) => (
-                <MenuItem value={item} key={item}>
+          {/* <MenuItem defaultValue="DEFAULT">استان</MenuItem> */}
+          <option  value="">
+            <em>استان</em>
+          </option >
+          {Object.keys(provinces).map((item, index) => (
+            <MenuItem  value={item} key={index}>
+              {item}
+            </MenuItem >
+          ))}
+       </NativeSelect>
+<span style={{color:"red",textAlign:"right"}}>{
+            formik.errors.province &&
+            formik.touched.province &&
+            formik.errors.province
+          }</span>
+        {/* city */}
+
+        <NativeSelect
+          select
+         
+          label="شهر"
+          sx={{ my: ".7rem" }}
+          type="text"
+          name="city"
+          onChange={formik.handleChange}
+          size="small"
+          fullWidth
+          helperText={
+            formik.errors.city && formik.touched.city && formik.errors.city
+          }
+        >
+          {/* <MenuItem defaultValue="DEFAULT">شهر</MenuItem> */}
+          <option  value="">
+            <em>شهر</em>
+          </option >
+          {formik.values.province ? (
+            <div>
+              {provinces[formik.values.province].map((item, index) => (
+                <option  value={item} key={index}>
                   {item}
-                </MenuItem>
-              ))
-            }
-           </>
-          ) }
-          {/* <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
-        </Select>
+                </option >
+              ))}
+            </div>
+          ) : <option  value="">
+          <em>شهر</em>
+        </option >}
+        </NativeSelect>
 
         <button
           type="submit"

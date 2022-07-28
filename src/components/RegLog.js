@@ -1,5 +1,7 @@
 import React,{useState} from "react";
 import styles from './RegLog.module.css'
+//Hoc
+import WithRendering from "./withRendering";
 //components
 import Signup from './Signup';
 import LoginSignup from "./LoginSignup";
@@ -13,7 +15,7 @@ const RegLog = () => {
         login={() => setIsSignedUp(true)}
         signup={() => setIsSignedUp(false)}
       />
-      {isSignedUp ? <Login /> : <Signup />}
+      {isSignedUp ? <Login  /> : <Signup />}
     </div>
   );
 };
