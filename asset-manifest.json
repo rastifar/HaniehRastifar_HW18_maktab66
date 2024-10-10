@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Sign-up-and-Register-From-using-Formik/static/css/main.45788dd1.css",
+    "main.js": "/Sign-up-and-Register-From-using-Formik/static/js/main.d7ecdd29.js",
+    "static/media/yekan.woff": "/Sign-up-and-Register-From-using-Formik/static/media/yekan.1e623c77bb4d266b943b.woff",
+    "index.html": "/Sign-up-and-Register-From-using-Formik/index.html",
+    "main.45788dd1.css.map": "/Sign-up-and-Register-From-using-Formik/static/css/main.45788dd1.css.map",
+    "main.d7ecdd29.js.map": "/Sign-up-and-Register-From-using-Formik/static/js/main.d7ecdd29.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45788dd1.css",
+    "static/js/main.d7ecdd29.js"
+  ]
+}
